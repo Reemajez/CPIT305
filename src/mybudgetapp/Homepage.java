@@ -29,6 +29,8 @@ public class Homepage extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        jButton4 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -43,9 +45,21 @@ public class Homepage extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 500));
         jPanel1.setLayout(null);
 
+        jButton4.setFont(solomonSans);
+        jButton4.setForeground(new java.awt.Color(202, 120, 11));
+        jButton4.setText("Private Expenses");
+        jPanel1.add(jButton4);
+        jButton4.setBounds(50, 320, 150, 30);
+
+        jButton3.setFont(solomonSans);
+        jButton3.setForeground(new java.awt.Color(202, 120, 11));
+        jButton3.setText("Private Expenses");
+        jPanel1.add(jButton3);
+        jButton3.setBounds(230, 320, 150, 30);
+
         jButton1.setFont(solomonSans);
         jButton1.setForeground(new java.awt.Color(202, 120, 11));
-        jButton1.setText("Budget Preparation");
+        jButton1.setText("Daily Expenses");
         jPanel1.add(jButton1);
         jButton1.setBounds(420, 320, 150, 30);
 
@@ -72,7 +86,7 @@ public class Homepage extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 55, Short.MAX_VALUE))
         );
 
         jPanel1.getAccessibleContext().setAccessibleName("Home");
@@ -118,6 +132,8 @@ public class Homepage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
