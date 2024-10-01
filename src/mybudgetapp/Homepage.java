@@ -45,29 +45,40 @@ public class Homepage extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 500));
         jPanel1.setLayout(null);
 
-        jButton4.setFont(solomonSans);
+        jButton4.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jButton4.setForeground(new java.awt.Color(202, 120, 11));
-        jButton4.setText("Private Expenses");
+        jButton4.setText("Expense Report");
         jPanel1.add(jButton4);
-        jButton4.setBounds(50, 320, 150, 30);
+        jButton4.setBounds(50, 320, 140, 30);
 
-        jButton3.setFont(solomonSans);
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jButton3.setForeground(new java.awt.Color(202, 120, 11));
         jButton3.setText("Private Expenses");
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(jButton3);
-        jButton3.setBounds(230, 320, 150, 30);
+        jButton3.setBounds(230, 320, 160, 30);
 
-        jButton1.setFont(solomonSans);
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jButton1.setForeground(new java.awt.Color(202, 120, 11));
         jButton1.setText("Daily Expenses");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton1);
-        jButton1.setBounds(420, 320, 150, 30);
+        jButton1.setBounds(420, 320, 140, 30);
 
-        jButton2.setFont(solomonSans);
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jButton2.setForeground(new java.awt.Color(202, 120, 11));
         jButton2.setText("Budget Preparation");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton2);
-        jButton2.setBounds(600, 320, 150, 30);
+        jButton2.setBounds(600, 320, 160, 30);
 
         jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\SHROOQAS\\Documents\\NetBeansProjects\\MyBudgetApp\\White and Blue Modern Creative Login Website Application Desktop Prototype.png")); // NOI18N
         jPanel1.add(jLabel2);
@@ -93,6 +104,17 @@ public class Homepage extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       BudgetPreparation  budgetPreparation= new BudgetPreparation();
+       budgetPreparation.setVisible(true);
+       this.dispose();
+       
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
