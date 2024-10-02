@@ -79,11 +79,8 @@ public class Homepage extends javax.swing.JFrame {
         });
         jPanel1.add(jButton2);
         jButton2.setBounds(600, 320, 160, 30);
-
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\SHROOQAS\\Documents\\NetBeansProjects\\MyBudgetApp\\White and Blue Modern Creative Login Website Application Desktop Prototype.png")); // NOI18N
         jPanel1.add(jLabel2);
         jLabel2.setBounds(0, 0, 810, 500);
-        jLabel2.getAccessibleContext().setAccessibleName("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
