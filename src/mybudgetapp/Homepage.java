@@ -30,7 +30,6 @@ public class Homepage extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jButton4 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -49,14 +48,7 @@ public class Homepage extends javax.swing.JFrame {
         jButton4.setForeground(new java.awt.Color(202, 120, 11));
         jButton4.setText("Expense Report");
         jPanel1.add(jButton4);
-        jButton4.setBounds(50, 320, 140, 30);
-
-        jButton3.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(202, 120, 11));
-        jButton3.setText("Private Expenses");
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel1.add(jButton3);
-        jButton3.setBounds(230, 320, 160, 30);
+        jButton4.setBounds(90, 320, 140, 30);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jButton1.setForeground(new java.awt.Color(202, 120, 11));
@@ -67,7 +59,7 @@ public class Homepage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(420, 320, 140, 30);
+        jButton1.setBounds(330, 320, 140, 30);
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jButton2.setForeground(new java.awt.Color(202, 120, 11));
@@ -78,7 +70,9 @@ public class Homepage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton2);
-        jButton2.setBounds(600, 320, 160, 30);
+        jButton2.setBounds(560, 320, 160, 30);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/main/White and Blue Modern Creative Login Website Application Desktop Prototype.png"))); // NOI18N
         jPanel1.add(jLabel2);
         jLabel2.setBounds(0, 0, 810, 500);
 
@@ -151,7 +145,6 @@ public class Homepage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

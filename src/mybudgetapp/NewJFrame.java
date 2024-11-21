@@ -49,7 +49,6 @@ public class NewJFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("TrackDailyExpenses");
         setBackground(new java.awt.Color(153, 255, 255));
-        setPreferredSize(new java.awt.Dimension(800, 500));
 
         jPanel2.setBackground(new java.awt.Color(249, 237, 220));
         jPanel2.setPreferredSize(new java.awt.Dimension(800, 500));
