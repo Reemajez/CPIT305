@@ -3,7 +3,7 @@
 // * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
 // */
 ////donnnneeeeee
-package code;
+package mybudgetapp;
 
 import java.sql.*;
 

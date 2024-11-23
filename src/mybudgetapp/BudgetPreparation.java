@@ -1,4 +1,7 @@
 package mybudgetapp;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -18,6 +21,7 @@ public class BudgetPreparation extends javax.swing.JFrame {
     public BudgetPreparation() {
         initComponents();
     }
+    static UserBudget userBudget;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -38,12 +42,21 @@ public class BudgetPreparation extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -77,7 +90,22 @@ public class BudgetPreparation extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setBackground(new java.awt.Color(202, 120, 11));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Save");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(202, 120, 11));
+        jLabel13.setText("%");
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(202, 120, 11));
+        jLabel17.setText("%");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -93,16 +121,24 @@ public class BudgetPreparation extends javax.swing.JFrame {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(40, 40, 40)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(40, 40, 40))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(49, Short.MAX_VALUE))
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,10 +156,12 @@ public class BudgetPreparation extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(160, Short.MAX_VALUE))
+                .addContainerGap(161, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel3);
@@ -159,14 +197,53 @@ public class BudgetPreparation extends javax.swing.JFrame {
         jPanel1.add(jLabel10);
         jLabel10.setBounds(60, 320, 120, 22);
 
-        jButton2.setText("Back");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jLabel1.setText("0");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(60, 190, 60, 30);
+        jLabel1.getAccessibleContext().setAccessibleName("none");
+
+        jLabel11.setText("0");
+        jPanel1.add(jLabel11);
+        jLabel11.setBounds(60, 280, 130, 40);
+
+        jLabel12.setText("0");
+        jPanel1.add(jLabel12);
+        jLabel12.setBounds(60, 370, 90, 40);
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(202, 120, 11));
+        jLabel15.setText("%");
+        jPanel1.add(jLabel15);
+        jLabel15.setBounds(110, 290, 14, 17);
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(202, 120, 11));
+        jLabel16.setText("%");
+        jPanel1.add(jLabel16);
+        jLabel16.setBounds(110, 290, 14, 17);
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(202, 120, 11));
+        jLabel14.setText("%");
+        jPanel1.add(jLabel14);
+        jLabel14.setBounds(110, 380, 40, 22);
+
+        jLabel18.setForeground(new java.awt.Color(202, 120, 11));
+        jLabel18.setText("SAR");
+        jPanel1.add(jLabel18);
+        jLabel18.setBounds(100, 190, 100, 30);
+
+        jButton3.setBackground(new java.awt.Color(202, 120, 11));
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setText("Back");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2);
-        jButton2.setBounds(30, 440, 90, 30);
+        jPanel1.add(jButton3);
+        jButton3.setBounds(30, 440, 90, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -188,12 +265,74 @@ public class BudgetPreparation extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+                                          
+    
+// Display user budget details only if values are greater than zero
+if (userBudget != null) {
+    // Display current budget
+    if (userBudget.getCurrentBudget() > 0) {
+        jLabel1.setText("Current Budget: " + userBudget.getCurrentBudget());
+    } else {
+        jLabel1.setText("Current Budget: N/A");
+    }
+
+    // Display total expenses
+    if (userBudget.getExpense() > 0) {
+        jLabel11.setText("Total Expense: " + userBudget.getExpense());
+    } else {
+        jLabel11.setText("Total Expense: N/A");
+    }
+
+    // Display savings percentage
+    if (userBudget.getSavingPercentage() > 0) {
+        jLabel12.setText("Savings Percentage: " + userBudget.getSavingPercentage() + "%");
+    } else {
+        jLabel12.setText("Savings Percentage: N/A");
+    }
+} else {
+    
+    jLabel1.setText("Current Budget: N/A");
+    jLabel11.setText("Total Expense: N/A");
+    jLabel12.setText("Savings Percentage: N/A");
+}
+
+        double budget = Double.parseDouble(jTextField1.getText());
+        double expenseRatio = Double.parseDouble(jTextField2.getText());
+        double savingsRatio = Double.parseDouble(jTextField3.getText());
+
+       try {
+    // Validate expense and savings ratio
+    if ((expenseRatio + savingsRatio) > 100) {
+        throw new InvalidBudgetException("The sum of expense ratio and savings ratio cannot exceed 100%.");
+    }
+
+    // Initialize UserBudget
+    userBudget = new UserBudget(budget, savingsRatio);
+
+    // Display current budget
+    JOptionPane.showMessageDialog(this, "Budget set successfully!\nCurrent Budget: " + userBudget.getCurrentBudget(),
+            "Success", JOptionPane.INFORMATION_MESSAGE);
+
+        jLabel1.setText("" + userBudget.getCurrentBudget());
+        jLabel11.setText("" + userBudget.getExpense());
+        jLabel12.setText("" + userBudget.getSavingPercentage());
+} catch (InvalidBudgetException e) {
+    JOptionPane.showMessageDialog(this, e.getMessage(), "Invalid Budget", JOptionPane.ERROR_MESSAGE);
+} catch (NumberFormatException e) {
+    JOptionPane.showMessageDialog(this, "Please enter valid numbers!", "Error", JOptionPane.ERROR_MESSAGE);
+} catch (Exception e) {
+    JOptionPane.showMessageDialog(this, "An unexpected error occurred: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+}
+
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         Homepage homepage = new Homepage();
         homepage.setVisible(true);
         this.dispose();
-        
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -232,8 +371,17 @@ public class BudgetPreparation extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

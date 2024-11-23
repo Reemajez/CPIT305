@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package code;
+package mybudgetapp;
 
 /**
  *
@@ -38,7 +38,10 @@ public class UserBudget {
         this.dailyExpenses = new HashMap<>();
         this.monthlyReports = new ArrayList<>();
     }
- 
+ public double getmonthlyBudget(){
+ return monthlyBudget;
+ }
+    
 //ok
     private double calculateSpendingBudget() {
         return monthlyBudget * ((100 - savingPercentage) / 100);
@@ -49,39 +52,40 @@ public class UserBudget {
         dailyExpenses.clear();
         currentBudget = calculateSpendingBudget();
     }
-//ok
-    public String addDailyExpense(String category, double amount) throws Exception {
-        if (amount > currentBudget) {
-            throw new Exception("لقد تجاوزت الميزانية الشهرية المتاحة للمصاريف!");
-        }
-        dailyExpenses.put(category,  amount);
-        
-        currentBudget -= amount;
-        return "تمت إضافة المصاريف بنجاح. الميزانية المتبقية: " + currentBudget;
-    }
-    //ok
-public void printExpenses() {
-    System.out.println("المصاريف الشهرية:");
-    if (dailyExpenses.isEmpty()) {
-        System.out.println("لا توجد مصاريف مدخلة لهذا الشهر.");
-    } else {
-        for (Map.Entry<String, Double> entry : dailyExpenses.entrySet()) {
-            System.out.println("الفئة: " + entry.getKey() + " | المبلغ: " + entry.getValue());
-        }
-    }
-    System.out.println("الميزانية المتبقية: " + currentBudget);
+    private int getCurrentDay() {
+    return java.time.LocalDate.now().getDayOfMonth();
 }
+//ok
+public String addDailyExpense(String category, double amount) throws Exception {
+    if (amount > currentBudget) {
+        throw new Exception("You have exceeded the available monthly budget for expenses!");
+    }
+    DatabaseHelper.addExpense(category, amount, getCurrentDay());
+    dailyExpenses.put(category, amount);
+
+    currentBudget -= amount;
+    return "Expense added successfully. Remaining budget: " + currentBudget;
+}
+
 
     public double getCurrentBudget() {
         return currentBudget;
     }
+
+    public double getSavingPercentage() {
+        return savingPercentage;
+    }
+    public double getExpense() {
+        return 100 - savingPercentage ;
+    }
+    
 //ok
 public void saveDailyExpensesToFile(String filename) throws IOException, SQLException {
     try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
         for (Map.Entry<String, Double> entry : dailyExpenses.entrySet()) {
             String line = "الفئة: " + entry.getKey() + " | المبلغ: " + entry.getValue();
             writer.write(line);
-            writer.newLine();  // إضافة سطر جديد بعد كل سطر من المصاريف
+            writer.newLine();  
         }
     }
 }

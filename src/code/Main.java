@@ -1,15 +1,17 @@
 package code;
-
-
+import mybudgetapp.CheckBudgetThread;
+import mybudgetapp.DatabaseHelper;
+import mybudgetapp.UserBudget;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         // إنشاء خيط منفصل لتشغيل الكود الرئيسي
-        
+        DatabaseHelper.createExpenseTable();
         Thread mainThread = new Thread(() -> {
             // Create a Scanner object to read user input
             Scanner scanner = new Scanner(System.in);
@@ -28,10 +30,16 @@ public class Main {
             
             System.out.println("current budget now is "+userBudget.getCurrentBudget());     
             try {
-                userBudget.savDailyExpensesToFile("savedata.txt");
+                userBudget.savDailyExpensesToFile("savedata1.txt");
             } catch (IOException ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
             }
+            try {
+                DatabaseHelper.createExpenseTable() ;
+            } catch (SQLException ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
             // Loop for each day of the month (1 to 30)
             for (int day = 1; day <= 30; day++) {
                 System.out.println("\nDay " + day + ":");
@@ -54,9 +62,7 @@ public class Main {
                         // Add expense to the database (assuming you have DatabaseHelper class)
                         DatabaseHelper.addExpense(category, amount, day);
 
-                     new  CheckBudgetThread(userBudget.getCurrentBudget()).CheckBudget();
-                        // Print the updated expenses
-                        userBudget.printExpenses();
+                  
 
                         // Save daily expenses to file
                         userBudget.saveDailyExpensesToFile("daily.txt");
