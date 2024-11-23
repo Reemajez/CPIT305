@@ -1,6 +1,8 @@
-الفئة: Food | المبلغ: 81.0 | اليوم: 23
-الفئة: Transport | المبلغ: 0.0 | اليوم: 23
-الفئة: Entertainment | المبلغ: 0.0 | اليوم: 23
-الفئة: Food | المبلغ: 81.0 | اليوم: 23
-الفئة: Transport | المبلغ: 0.0 | اليوم: 23
-الفئة: Entertainment | المبلغ: 0.0 | اليوم: 23
+Category: Food | Cost: 81.0 | Day: 23
+Category: Transport | Cost: 0.0 | Day: 23
+Category: Entertainment | Cost: 0.0 | Day: 23
+Category: Food | Cost: 81.0 | Day: 23
+Category: Transport | Cost: 0.0 | Day: 23
+Category: Entertainment | Cost: 0.0 | Day: 23
+Category: Food | Cost: 50.0 | Day: 23
+Category: Transport | Cost: 20.0 | Day: 23

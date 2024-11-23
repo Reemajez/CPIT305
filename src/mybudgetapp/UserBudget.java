@@ -83,7 +83,7 @@ public String addDailyExpense(String category, double amount) throws Exception {
 public void saveDailyExpensesToFile(String filename) throws IOException, SQLException {
     try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
         for (Map.Entry<String, Double> entry : dailyExpenses.entrySet()) {
-            String line = "الفئة: " + entry.getKey() + " | المبلغ: " + entry.getValue();
+            String line = "category: " + entry.getKey() + " | cost: " + entry.getValue();
             writer.write(line);
             writer.newLine();  
         }
@@ -155,15 +155,7 @@ public static void main(String[] args) {
             oos.writeObject(monthlyReports);
         }
     }
-//    public void sendReportToServer(String serverAddress, int port) {
-//        try (Socket socket = new Socket(serverAddress, port);
-//             ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream())) {
-//            oos.writeObject(monthlyReports);
-//            System.out.println("Report sent to server.");
-//        } catch (IOException e) {
-//            System.out.println("Failed to send report to server: " + e.getMessage());
-//        }
-//    }
+
 
    
    
@@ -202,7 +194,7 @@ public void savDailyExpensesToFile(String filename) throws IOException {
             double amount = rs.getDouble("amount");
             int day = rs.getInt("day");
 
-            String line = "الفئة: " + category + " | المبلغ: " + amount + " | اليوم: " + day;
+            String line = "Category: " + category + " | Cost: " + amount + " | Day: " + day;
             writer.write(line);
             writer.newLine(); // Add a new line after each entry
         }
